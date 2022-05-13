@@ -8,7 +8,38 @@
 
 # Где солдат будет стрелять из пушки и перезаряжаться, и стрелять еще раз.
 
+class Soldier:
+    def __init__(self, fire='тиги-тигитиш'):
+        self.fire = fire
+    def fire(self):
+        return (f'{self.fire}')
+    def fire1(self):
+        return 'пиу-пиу'
 
+    def gun_fire(self):
+        b = 5
+        while True:
+            a = input()
+            print(b)
+            if a == 'r' and b > 0:
+                print(Soldier1.fire1())
+                b = b - 1
+            elif a == 'r' and b <= 0:
+
+                print('Перезарядка')
+                b = 5
+            else:
+                    print('ERROR')
+
+class Act_of_Shooting(Soldier):
+    pass
+
+Soldier1 = Soldier()
+print('r = fire')
+# print(Soldier1.gun_fire())
+
+c = Act_of_Shooting
+print(c.gun_fire(self=Soldier))
 
 # # 2 
 # Furniture:
@@ -17,6 +48,46 @@
 # Добавьте в дом три вышеупомянутых предмета мебели.
 # При печати дома требуются следующие данные: тип дома, общая площадь, оставшаяся площадь, список названий мебели.
 
+class Furniture:
+    def __init__(self, name, area):
+        self.name = name
+        self.area = area
+
+    def __str__(self):
+                 return'Мебель:% s Занятая площадь:% .2f '% (self.name, self.area)
+
+class House:
+    def __init__(self, house_type, area=300):
+        self.house_type = house_type
+        self.area = area
+        self.free_area = area
+        self.furniture_list = []
+
+    def __str__(self):
+                 return f'{self.house_type},{self.area},{self.free_area},{self.furniture_list}'
+
+    def add_furniture(self,furniture):
+
+        print('Добавить мебель% s площадь:% .2f '% (имя.Мебель, площадь.покрытия))
+        if self.free_area < furniture.area:
+            print('Площадь мебели% s превышает оставшуюся площадь '% Furniture.name)
+            return
+        self.furniture_list.append(furniture.name)
+        self.free_area-=furniture.area
+
+
+type_house= House('Тип-Кирпичный',300)
+bed = Furniture('bed',7)
+table = Furniture('table',5)
+cabinet = Furniture('cabinet',3)
+
+print (bed)
+print (table)
+print (cabinet)
+print(type_house)
+
+my_house = Furniture('Общая площадь',200)
+print (my_house)
 
 
 # # 3 
@@ -32,6 +103,19 @@
 # print(Johnny)
 # <name: Jonathan Rosenberg, age: 24, major: Biology>
 
+class Person:
+    def __init__(self,name,age,less):
+        self.name = name
+        self.age = age
+        self.less = less
+
+
+steve = Person('Steven Schultz', 23, 'English')
+johnny = Person(' Jonathan Rosenberg',24,'Biology')
+penny = Person('Penelope Meramveliotakis',21,'Physics')
+print(('name:',steve.name,'age:',steve.age,'major:',steve.less))
+print(('name:',johnny.name,'age:',johnny.age,'major:',johnny.less))
+print(('name:',penny.name,'age:',penny.age,'major:',penny.less))
 
 
 # # 4 
@@ -61,6 +145,26 @@
 # print(cash) -- returns "-$0.30"
 # repr(cash) -- returns -0.3
 
+
+class MoneyFmt:
+    def __init__(self, dollarize = 123456.78901, dollarize1 = -123456.7801):
+        self.dollarize = dollarize
+        self.dollarize1 = dollarize1
+
+
+    def dollarize2(self):
+        return f'{("{:,.2f}".format(self.dollarize))}, {("{:,.2f}".format(self.dollarize1))}'
+
+    def update(self, dollarize):
+        self.dollarize = dollarize
+        
+
+d = MoneyFmt(dollarize=123456.78901, dollarize1=-123456.7801)
+o = d.dollarize2()
+print(o)
+print(type(o))
+d.update(132123425)
+print(d.__dict__)
 
 
 # # 5  
